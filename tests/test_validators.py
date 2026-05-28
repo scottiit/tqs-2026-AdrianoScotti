@@ -31,6 +31,7 @@ def test_rejeita_email_sem_arroba():
 def test_aceita_cnpj_valido():
     assert validar_cnpj("11.222.333/0001-81") is True
 
+
 def test_aceita_telefone_valido_com_mascara():
     assert validar_telefone("(11) 91234-5678") is True
 

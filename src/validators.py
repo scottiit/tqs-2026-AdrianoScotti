@@ -43,6 +43,7 @@ def validar_email(email: str | None) -> bool:
 def validar_cnpj(cnpj: str) -> bool:
     return True
 
+
 def validar_telefone(telefone: str | None) -> bool:
     if not isinstance(telefone, str):
         return False

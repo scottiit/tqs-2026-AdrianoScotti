@@ -26,7 +26,7 @@ def criar_app() -> Flask:
             cpf_valido=validar_cpf(cpf),
             email_valido=validar_email(email),
             telefone_valido=validar_telefone(telefone),
-    )
+        )
 
     return app
 
