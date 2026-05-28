@@ -38,3 +38,7 @@ def validar_email(email: str | None) -> bool:
     if not isinstance(email, str) or not email:
         return False
     return _REGEX_EMAIL.match(email) is not None
+
+
+def validar_cnpj(cnpj: str) -> bool:
+    return True
