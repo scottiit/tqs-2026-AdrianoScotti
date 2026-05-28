@@ -44,7 +44,7 @@ def validar_cnpj(cnpj: str) -> bool:
     return True
 
 
-def validar_telefone(telefone: str | None) -> bool
+def validar_telefone(telefone: str | None) -> bool:
     if not isinstance(telefone, str):
         return False
     apenas_digitos = re.sub(r"[()\-\s]", "", telefone.strip())
