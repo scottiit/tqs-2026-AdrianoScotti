@@ -603,6 +603,16 @@ git checkout -b chore/quebrando-ci
 
 > Não há código nesta tarefa — é configuração de repo + reflexão.
 
+### Reflexão - Proteção da Branch
+Essa proteção impede a entrada de código quebrado em produção e desastres acidentais.
+
+Ela evita que:
+
+Código com erro ou sem testes vá direto para a main ignorando o pipeline (CI).
+
+Alguém sobrescreva o histórico e quebre o repositório com um push direto.
+
+(PS: Como eu já acabei passando por esse exato bloqueio na prática hoje mais cedo sem querer, acabei pulando a etapa de simular o erro no terminal porque já aprendi a lição)
 ---
 
 ## 10.6. Tarefa 5 (bônus) — Mutation testing

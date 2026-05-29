@@ -111,5 +111,3 @@ tqs-2026/
 ---
 
 **Comece a leitura** → [Capítulo 1 — Visão geral ➡](capitulos/01-visao-geral.md)
-
-TESTE
