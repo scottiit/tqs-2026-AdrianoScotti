@@ -15,6 +15,15 @@ function calcularDigitoVerificador(digitos, pesoInicial) {
     return resto === 10 ? 0 : resto;
 }
 
+function calcularDigitoVerificadorCnpj(digitos, pesos) {
+    let soma = 0;
+    for (let i = 0; i < digitos.length; i++) {
+        soma += parseInt(digitos[i], 10) * pesos[i];
+    }
+    const resto = soma % 11;
+    return resto < 2 ? "0" : String(11 - resto);
+}
+
 export function validarCpf(cpf) {
     if (typeof cpf !== "string") return false;
 
@@ -32,6 +41,23 @@ export function validarCpf(cpf) {
 export function validarEmail(email) {
     if (typeof email !== "string" || email.length === 0) return false;
     return REGEX_EMAIL.test(email);
+}
+
+export function validarCnpj(cnpj) {
+    if (typeof cnpj !== "string" || cnpj.length === 0) return false;
+
+    const apenasDigitos = cnpj.replace(/[.\-/\s]/g, "");
+
+    if (apenasDigitos.length !== 14 || !/^\d{14}$/.test(apenasDigitos)) return false;
+    if (new Set(apenasDigitos).size === 1) return false;
+
+    const pesosPrimeiro = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    const pesosSegundo = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+
+    const primeiro = calcularDigitoVerificadorCnpj(apenasDigitos.slice(0, 12), pesosPrimeiro);
+    const segundo = calcularDigitoVerificadorCnpj(apenasDigitos.slice(0, 13), pesosSegundo);
+
+    return apenasDigitos[12] === primeiro && apenasDigitos[13] === segundo;
 }
 
 export function validarTelefone(telefone) {
